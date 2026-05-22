@@ -23,20 +23,50 @@ The system helps manage:
 # Project Structure
 
 ```text
-CakeBackers-main/
+CakeBackers/
+│
+├── README.md
 │
 ├── src/
+│   │
 │   ├── dao/
-│   ├── exception/
+│   │   ├── BillingDAO.java
+│   │   ├── CakeDAO.java
+│   │   ├── CustomerDAO.java
+│   │   ├── FeedbackDAO.java
+│   │   └── OrderDAO.java
+│   │
 │   ├── model/
+│   │   ├── Billing.java
+│   │   ├── Cake.java
+│   │   ├── Customer.java
+│   │   ├── Feedback.java
+│   │   └── Order.java
+│   │
 │   ├── service/
-│   ├── ui/
-│   └── util/
+│   │   ├── BillingService.java
+│   │   ├── CakeService.java
+│   │   ├── CustomerService.java
+│   │   ├── FeedbackService.java
+│   │   └── OrderService.java
+│   │
+│   ├── util/
+│   │   ├── ApplicationUtil.java
+│   │   └── DatabaseUtil.java
+│   │
+│   ├── exception/
+│   │   └── OrderNotCancelledException.java
+│   │
+│   └── ui/
+│       └── MainUI.java
 │
-├── bin/
-├── .settings/
-├── .classpath
-└── .project
+├── lib/
+│   └── mysql-connector-j-8.x.x.jar
+│
+├── database/
+│   └── cakebackers.sql
+│
+└── .settings/
 ```
 
 ---
