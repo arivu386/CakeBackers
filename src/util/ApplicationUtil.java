@@ -2,19 +2,19 @@ package util;
 
 public class ApplicationUtil 
 {
-    // Split Method
+    // ------------------------------Split Method------------------------------
     public static String[] splitDetails(String input) 
     {
         return input.split(":");
     }
 
-    // Mobile Validation Method
+    // --------------------------Mobile Validation Method------------------------
     public boolean isValidMobile(String mobile) 
     {
         return mobile.matches("[789][0-9]{9}");
     }
 
-    // Email Validation Method
+    // ---------------------------Email Validation Method------------------------
     public boolean isValidEmail(String email) 
     {
         return email.matches("^[A-Za-z0-9+_.-]+@gmail\\.com$");

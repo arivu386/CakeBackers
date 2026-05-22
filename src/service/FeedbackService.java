@@ -7,7 +7,7 @@ public class FeedbackService
 {
     FeedbackDAO dao =new FeedbackDAO();
 
-    // Add Feedback
+    // -------------------------------------Add Feedback-----------------------------------------
     public void addFeedback(Feedback feedback) 
     {
         int rows=dao.addFeedback(feedback);
@@ -21,7 +21,7 @@ public class FeedbackService
         }
     }
 
-    // View Feedback
+    // ----------------------------------------View Feedback---------------------------------------
     public void viewFeedback(int feedbackId) 
     {
         boolean found=dao.viewFeedback(feedbackId);
@@ -29,5 +29,24 @@ public class FeedbackService
         {
             System.out.println("Feedback Not Found");
         }
+    }
+    
+    //  -------------------------------------view all feedbacks-----------------------------------
+    public void viewAllFeedbacks() 
+    {
+        boolean found=dao.viewAllFeedbacks();
+        if(!found) 
+        {
+            System.out.println("Feedback Not Found");
+        }
+    }
+    // -----------------------------------sort feedback by rating----------------------------------
+    public void sortFeedbackByRating() 
+    {
+        boolean found=dao.sortFeedbackByRating();
+        if (!found) 
+        {
+			System.out.println("No Feedback Data Available");
+		}
     }
 }

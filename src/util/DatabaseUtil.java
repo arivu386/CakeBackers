@@ -9,7 +9,8 @@ public class DatabaseUtil
 
     public static Connection getConnection() 
     {
-        try {
+        try 
+        {
         	if(connection == null || connection.isClosed())
         	{
 	            String url ="jdbc:mysql://localhost:3306/project";

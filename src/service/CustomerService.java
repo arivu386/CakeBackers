@@ -9,7 +9,7 @@ public class CustomerService
     CustomerDAO dao =new CustomerDAO();
     ApplicationUtil au=new ApplicationUtil();
 
-    // Add Customer
+    // ----------------------------------------Add Customer---------------------------------------
     public void addCustomer(Customer customer) 
     {
         String mobile =customer.getContact();
@@ -19,7 +19,6 @@ public class CustomerService
         if(!au.isValidMobile(mobile)) 
         {
             System.out.println("Invalid Mobile Number");
-
             System.out.println("Mobile number must:");
             System.out.println("1. Start with 7/8/9");
             System.out.println("2. Contain exactly 10 digits");
@@ -45,7 +44,7 @@ public class CustomerService
         }
     }
 
-    // View Customer
+    // ------------------------------------------View Customer----------------------------------------------
     public void viewCustomer(int customerId) 
     {
         boolean found=dao.viewCustomer(customerId);
@@ -55,7 +54,68 @@ public class CustomerService
         }
     }
 
-    // Update Email
+    // -----------------------------------------view all customer--------------------------------------------
+    public void viewAllCustomers()
+    {
+    	boolean found=dao.viewAllCustomers();
+    	if(!found) 
+        {
+            System.out.println("Customer Not Found");
+        }
+    }
+    
+    //------------------------------------------- update name------------------------------------------------
+    public void updateCustomerName(int customerId, String name) 
+    {
+    	int rows=dao.updateCustomerName(customerId,name); 
+    	if (rows > 0) {
+			System.out.println("Customer Name Updated Successfully");
+		} 
+    	else 
+    	{
+			System.out.println("Customer Not Found");
+		}
+    }
+    
+    // --------------------------------------------update contact---------------------------------------------
+    public void updateCustomerContact(int customerId, String contact)
+    {
+    	if(!au.isValidMobile(contact)) 
+        {
+            System.out.println("Invalid Mobile Number");
+            System.out.println("Mobile number must:");
+            System.out.println("1. Start with 7/8/9");
+            System.out.println("2. Contain exactly 10 digits");
+            return;
+        }
+    	
+    	int rows=dao.updateCustomerContact(customerId,contact);
+    	if (rows > 0) 
+		{
+			System.out.println("Customer Contact Updated Successfully");
+		} 
+		else 
+		{
+			System.out.println("Customer Not Found");
+		}
+
+    }
+    
+    // -----------------------------------------------Update address-----------------------------------------------
+    public void updateCustomerAddress(int customerId, String address)
+    {
+    	int rows=dao.updateCustomerAddress(customerId,address);
+    	if (rows > 0) 
+    	{
+			System.out.println("Customer Address Updated Successfully");
+		} 
+    	else 
+    	{
+			System.out.println("Customer Not Found");
+		}
+    }
+    
+    // -----------------------------------------------Update Email-------------------------------------------------
     public void updateCustomerEmail(int customerId,String email) 
     {
         if(!au.isValidEmail(email)) 
@@ -75,7 +135,7 @@ public class CustomerService
         }
     }
 
-    // Deactivate Customer
+    // ------------------------------------------------Deactivate Customer----------------------------------------
     public void deactivateCustomer(int customerId) 
     {
         int rows=dao.deactivateCustomer(customerId);

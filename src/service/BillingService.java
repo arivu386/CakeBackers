@@ -7,7 +7,7 @@ public class BillingService
 {
     BillingDAO dao =new BillingDAO();
 
-    // Generate Bill
+    // ----------------------------Generate Bill--------------------------------------
     public void generateBill(Billing billing) 
     {
         int rows=dao.generateBill(billing);
@@ -21,10 +21,20 @@ public class BillingService
         }
     }
 
-    // View Bill
+    // ---------------------------------View Bill--------------------------------------
     public void viewBill(int billId) 
     {
         boolean found=dao.viewBill(billId);
+        if(!found) 
+        {
+            System.out.println("Bill Not Found");
+        }
+    }
+    
+    // --------------------------------view all bills-----------------------------------
+    public void viewAllBills() 
+    {
+        boolean found=dao.viewAllBills();
         if(!found) 
         {
             System.out.println("Bill Not Found");
